@@ -50,7 +50,7 @@
           <li class="active"><a href="#header">Home</a></li>
           <li><a href="#about">Motivation & Description</a></li>
           <li><a href="#services">Call For Papers</a></li>
-          <li><a href="#about">Submission Guidelines</a></li>
+          <li><a href="#sug">Submission Guidelines</a></li>
           <li><a href="#about">Important Dates</a></li>
           <li><a href="#about">Program</a></li>
           <li><a href="#team">Organizers</a></li>
@@ -206,7 +206,7 @@ information, information cards, etc. </li></ul></li>
     </section><!-- End Services Section -->
 
     <!-- ======= Call To Action Section ======= -->
-    <section id='dataset' class="about">
+    <section id='sug' class="about">
       <div class="container">
 
         <div class="text-center">
@@ -217,155 +217,15 @@ information, information cards, etc. </li></ul></li>
             The movie scripts that were chosen to depict situations requiring contextualization involve relatively long conversations between one or more actors.
             For each movie script, we <b>annotated a span of text</b> that were manually assessed to be indicative of potential contextualization as shown in section above. 
           We selected a number of play-style movie scripts for annotation, i.e. the ones which involve long dialogue acts for plot development. In total, we annotated 4 movie scripts, namely</p>
-          <div class="row">
-          <div class="col-lg-12">
-            <center>
-          <ul>
-            <li><a href="https://www.imdb.com/title/tt0138704/">Pi</a> </li>
-            <li><a href="https://www.imdb.com/title/tt0050083/">12 angry men</a></li>
-            <li><a href="https://www.imdb.com/title/tt0119217/">Good will hunting</a></li>
-            <li><a href="https://www.imdb.com/title/tt0091605/">The name of the rose</a></li>
-            <!--li><a href="https://www.imdb.com/title/tt0049833">The Ten Commandments </a></li-->
-          </ul>
-            </center>
-          </div>
-            The text extracted from the movie script along with the <a href="https://brat.nlplab.org/"> &nbsp; BRAT &nbsp;</a> formatted annotation file can be found&nbsp;
-      <a href="https://github.com/rcd2020firetask/RCD2020FIRETASK/tree/master/dialogues">here</a>.         
-          </div>
-
-          <p class='text-left'>
-            <!--To facilitate easy participation in the task, we will indexed version of the collection.-->
-        The dataset for this track comprises of:
-        <ul>
-        <li> <b>Document Collection</b>: The objective in this track (Task-2) is to retrieve a ranked list of Wikipedia passages. We release a pre-processed version of Wikipedia
-dump, where we have enclosed each paragraph of a Wikipedia page into separate XML tags. Each tag is assigned a unique identifier. The basic retrieval unit for this ranking
-task is hence a Wikipedia passage. Note that it's up to you if you want to treat the passages as units contained within a document or treat them independently while ranking them.
-Each passage has been (and will be) judged independently.
-          
-          There are two options for the collection that you can download.
-          <ul>
-          <li> A TREC formatted markup document consisting of passage demarcated Wikipedia collection can be downloaded from this
-<a href="https://drive.google.com/file/d/1JgiYwTXMkoAUaWzgDeL7LQP5r-G-ReAM/view?usp=sharing">Google drive link</a>.
-          </li>
-          <li> A more simplified format (a tab separated file text file) containing the passage id in the first column and passage content in the second can be downloaded from
-               this <a href="https://drive.google.com/file/d/1iujCKja301ciGnk3nvErUJebF7_Tc7pD/view?usp=sharing">Google drive link</a>.
-          </li>
-          </ul>
-          
-          A sample mavenized Lucene project to help the participants get started with indexing and retrieval can be found
-          <a href="https://github.com/gdebasis/luc4ir">here</a>.
-          
-        </li>
-        <li> <b> Queries/Topics: </b> A query for the ranking task contains a dialog piece from a movie. The topic file is similar in structure to a standard TREC query.
-        Each query (topic) starts with a <b>topic</b> tag. The <b>num</b> tag assigns a unique identifier to the topic. You have to use these ids in the output <b>results</b>
-file (more on this later). Each topic has a <b>desc</b> tag which contains a list of dialogues enclosed within '<b>p</b>' tags. Each 'p' tag indicates a change of speaker.
-Some topics have identical description fields because while annotating we identified multiple concepts from the same dialog piece that may require contextualization.
-In such a case, the one with a smaller number is associated to the concept which occurs in the text before the other corresponding to the larger number.
-In addition to the 'desc' field, the training topics contains an additional <b>title </b> field which describes the exact span of text representing the information need.
-We make this information available for the participants to get an idea about the types of text spans that would typically require contextualization from dialog streams.
-
-        </li>
-        <li><b>Relevance Judgments: </b> For the training set of topics, we release a <b>TREC qrel</b> formatted file with 4 white-space separated columns, the first column
-denoting query id, the second unused, the third - a string denoting the passage (basic retrieval unit) identifier and the fourth indicating the relevance label (1/0) in our case.
-The training topics along with the relevance judgments can be downloaded from this <a href="https://github.com/rcd2020firetask/RCD2020FIRETASK/tree/master/Train">link to training data</a>. To obtain the relevance assessments, we constructed a pool of passages by a combination of retrieval with a number of standard IR models, such as BM25, LM, DFR etc. Passages in the pool were assessed by the organizors with respect to each input dialogue.
-For test topics, we will add the documents collected from the participating systems in the pool and
-reevaluate the extended pool.
-        </li>
-        </ul>
-          
-        </p>
-
-        <!--div class='text-left'>
-        In the training phase we release 25 dialogue acts making explicitly available the annotated text spans to the participants by marking them up. The participants can then make use the dialogue in order to formulate queries for retrieving relevant passages. 
-For task 1 the output will be in the format &lt;qid&gt; &lt;Tab&gt; &lt;Information Need&gt;. Each topic will be in newline. For task 1 the link for the wikipedia collection is here <a href="https://drive.google.com/file/d/1JgiYwTXMkoAUaWzgDeL7LQP5r-G-ReAM/view?usp=sharing">Wikipedia Collection</a>.
-        For Task 2, the output format will be same as trec result format. 
-        </div-->
-
-        <!--div class='text-left'>
-        In the test phase, we will release only the entire dialogue act without the explicit annotation of the precise information need and the relevance judgments (to represent a more realistic situation). The participants are expected to develop and tune their methodologies on the training set and submit the results with optimal configurations of the system on the test set.
-        The link for test data set is here <a href="https://github.com/rcd2020firetask/RCD2020FIRETASK/blob/master/test.txt">Test Data</a>.
-        </div-->
-
-    <p class="text-left">
-    <h3> Run Submission Format </h3>
-    For each query in the <a href="https://github.com/rcd2020firetask/RCD2020FIRETASK/blob/master/test.txt">test topic file</a>, the participants need to submit automatically generated outputs one or both the tasks.
-
-    <ul>
-
-    <li><b>Task-1:</b> Participants need to submit a two column file where each line contains the query id and the predicted text span from the given description.
-    An example task-1 submission file looks like
-    <div align="center">
-    <pre>
-    1 [\t] That's in the Constitution. The Fifth Amendment.
-    4 [\t] cute little switchknife
-    ...
-    ...
-    </pre>
-    </div>
-    </li>
-
-    <li><b>Task-2:</b> Participants need to submit a standard TREC .res formatted file comprising of the following. The first column denotes query id (matches the ids of the test topics), the second is unused, the third is the retrieved document (Wiki passage) identifier, the fourth is the rank of this document (passage), the fifth is the similarity score and the sixth column denotes a run-name to distinguish between different runs (the run-name should be meaningful and representative of the method used to generate the run).
-    An example task-2 submission file looks like
-    <div align="center">
-    <pre>
-    1	Q0	10046153-34	1 13.23 BM25_termselection
-    1	Q0	10275774-4	2 12.58 BM25_termselection
-    ...
-    ...
-    2	Q0	5202223-19	1 7.64 BM25_termselection
-    2	Q0	527390-11	2 7.37 BM25_termselection
-    ...
-    ...
-    </pre>
-    </div>
-    </ul>    
+         
     </div>
 
       
-    Note that since the retrievable units for our track are Wikipedia passages (not documents), in the collection provided we have assigned unique identifiers
-      to passages. The naming convention for a passage is <b>doc number</b>-<b>passage offset</b>, i.e. two integers separated by a hyphen character
-      (encoded within the <b>pno</b> tags within the collection provided).
-    Task-2 participants will be required to print these identifiers in the third column of the run submission file. Using other arbitrary identifiers
-    would not enable us to match the relevant retrieved passages from the ones in the qrel file. A sample XML excerpt for a Wikipedia document, titled
-<a href="https://en.wikipedia.org/wiki/Anarchism">Anarchism</a> is shown below. 
-</p>
+  
 <br>
 <br>
 <br>
-
-<p>      
-<textarea rows="35" cols="80" style="border:none;">
-<doc>
- <docno> 2 </docno>
-<page>
-<p>
- <pno> 2-1 </pno>
-    <title>Anarchism</title>
-    <ns>0</ns>
-    <id>12</id>
-    <revision>
-      <id>918470367</id>
-      <parentid>918111101</parentid>
-      <timestamp>2019-09-28T20:40:50Z</timestamp>
-      <contributor>
-        <username>Brainulator9</username>
-        <id>11191612</id>
-      </contributor>
-      <comment>/* Sources */Remove redundant |year= parameter from CS1 citations;</comment>
-      <model>wikitext</model>
-      <format>text/x-wiki</format>
-      <text xml:space="preserve">{{good article}}
-{{redirect2|Anarchist|Anarchists|other uses|Anarchists (disambiguation)}}
-{{pp-move-indef}}
-{{short description|Political philosophy that advocates self-governed societies}}
-{{use dmy dates|date=July 2018}}
-{{use British English|date=January 2014}}
-{{anarchism sidebar}}
-{{basic forms of government}}
-'''Anarchism''' is an [[Anti-authoritarianism|anti-authoritarian]] [[political philosophy]]{{sfnm|1a1=McLaughlin|1y=2007|1p=59|2a1=Flint|2y=2009|2p=27}} that rejects [[Hierarchy|hierarchies]] deemed unjust and advocates their replacement with [[Workers' self-management|self-managed]], [[Self-governance|self-governed]] societies based on voluntary, [[cooperative]] institutions. These institutions are often described as [[Stateless society|stateless societies]],{{sfnm|1a1=Sheehan|1y=2003|1p=85|2a1=Craig|2y=2005|2p=14}} although several authors have defined them more specifically as distinct institutions based on non-hierarchical or [[Free association (communism and anarchism)|free associations]].{{sfn|Suissa|2006|p=7}} Anarchism's central disagreement with other ideologies is that it holds the [[Sovereign state|state]] to be undesirable, unnecessary, and harmful.{{sfnm|1a1=McLean|1a2=McMillan|1y=2003|loc=Anarchism|2a1=Craig|2y=2005|2p=14}}
-</p>
-</textarea>
-  </p>      
+  
      
   <b>For submission, you need to send your runs to rcd2020@firetask@gmail.com. </b>
     </section><!-- End Call To Action Section -->
